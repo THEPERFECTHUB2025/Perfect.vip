@@ -550,7 +550,6 @@ do
 			local Main = Instance.new('Frame', ScreenGui)
 			local NeonEffect = Instance.new('UIStroke', Main)
 			local CornerEffect = Instance.new('UICorner', Main)
-			local Shadow = Instance.new('ImageLabel', Main)
 			local Inline = Instance.new('Frame', Main)
 			local Middle = Instance.new('Frame', Inline)
 			local Line = Instance.new('Frame', Middle)
@@ -589,31 +588,15 @@ do
 			Main.Name = "Main"
 			Main.Position = UDim2.new(0.5,0,0.5,0)
 			Main.Size = UDim2.new(0,600,0,450) -- Slightly larger for a modern look
-			Main.BackgroundColor3 = Color3.fromRGB(15, 15, 15) -- Darker for a sleek look
+			Main.BackgroundColor3 = Color3.fromRGB(20,20,20) -- Darker background
 			Main.BorderSizePixel = 0
 			Main.AnchorPoint = Vector2.new(0.5,0.5)
 			-- Add neon glow effect
 			NeonEffect.Thickness = 2
-			NeonEffect.Color = Color3.fromRGB(0, 255, 200) -- Neon cyan
-			NeonEffect.Transparency = 0.4
+			NeonEffect.Color = Color3.fromRGB(0,170,255) -- Neon blue
+			NeonEffect.Transparency = 0.5
 			-- Add rounded corners
-			CornerEffect.CornerRadius = UDim.new(0, 12)
-			-- Add shadow for depth
-			Shadow.Name = "Shadow"
-			Shadow.Size = UDim2.new(1, 20, 1, 20)
-			Shadow.Position = UDim2.new(0.5, 0, 0.5, 0)
-			Shadow.AnchorPoint = Vector2.new(0.5, 0.5)
-			Shadow.BackgroundTransparency = 1
-			Shadow.Image = "rbxassetid://1316045217" -- Shadow asset
-			Shadow.ImageColor3 = Color3.fromRGB(0, 0, 0)
-			Shadow.ImageTransparency = 0.6
-			-- Add gradient background
-			local Gradient = Instance.new('UIGradient', Main)
-			Gradient.Color = ColorSequence.new{
-				ColorSequenceKeypoint.new(0, Color3.fromRGB(0, 0, 0)),
-				ColorSequenceKeypoint.new(1, Color3.fromRGB(25, 25, 25))
-			}
-			Gradient.Rotation = 45
+			CornerEffect.CornerRadius = UDim.new(0,8) -- Adjusted to prevent corners from exceeding
 			Library.Holder = Main
 			--
 			Inline.Name = "Inline"
@@ -795,7 +778,7 @@ do
 			--
 			Holder.Name = "Page"
 			Holder.Size = UDim2.new(0,50,1,0)
-			Holder.BackgroundColor3 = Color3.fromRGB(20, 20, 20) -- Sleek dark background
+			Holder.BackgroundColor3 = Color3.new(1,1,1)
 			Holder.BackgroundTransparency = 1
 			Holder.BorderSizePixel = 0
 			Holder.BorderColor3 = Color3.new(0,0,0)
@@ -808,17 +791,10 @@ do
 			--
 			-- Add neon glow effect
 			NeonEffect.Thickness = 1
-			NeonEffect.Color = Color3.fromRGB(0, 255, 200) -- Neon cyan
-			NeonEffect.Transparency = 0.4
+			NeonEffect.Color = Color3.fromRGB(0,170,255) -- Neon blue
+			NeonEffect.Transparency = 0.5
 			-- Add rounded corners
-			CornerEffect.CornerRadius = UDim.new(0, 10)
-			-- Add hover animation
-			Holder.MouseEnter:Connect(function()
-				game:GetService("TweenService"):Create(NeonEffect, TweenInfo.new(0.3), {Transparency = 0}):Play()
-			end)
-			Holder.MouseLeave:Connect(function()
-				game:GetService("TweenService"):Create(NeonEffect, TweenInfo.new(0.3), {Transparency = 0.4}):Play()
-			end)
+			CornerEffect.CornerRadius = UDim.new(0,6) -- Adjusted to prevent corners from exceeding
 			--
 			Button.Name = "Button"
 			Button.Position = UDim2.new(0,0,0,3)
@@ -1043,18 +1019,14 @@ do
 			--
 			Frame.Position = UDim2.new(0,1,0,0)
 			Frame.Size = UDim2.new(1,-2,1,0)
-			Frame.BackgroundColor3 = Color3.fromRGB(18, 18, 18) -- Slightly darker for contrast
+			Frame.BackgroundColor3 = Color3.fromRGB(25,25,25) -- Slightly darker
 			Frame.BorderSizePixel = 0
 			-- Add neon glow effect
 			NeonEffect.Thickness = 1
-			NeonEffect.Color = Color3.fromRGB(0, 255, 200) -- Neon cyan
-			NeonEffect.Transparency = 0.4
+			NeonEffect.Color = Color3.fromRGB(0,255,170) -- Neon green
+			NeonEffect.Transparency = 0.5
 			-- Add rounded corners
-			CornerEffect.CornerRadius = UDim.new(0, 8)
-			-- Add subtle pulse animation
-			game:GetService("RunService").RenderStepped:Connect(function()
-				NeonEffect.Transparency = 0.4 + math.sin(tick() * 2) * 0.1
-			end)
+			CornerEffect.CornerRadius = UDim.new(0,4) -- Adjusted to prevent corners from exceeding
 			--
 			UIGradient.Color = ColorSequence.new{ColorSequenceKeypoint.new(0,Color3.new(0.7411764860153198, 0.7411764860153198, 0.7411764860153198)	),ColorSequenceKeypoint.new(1,Color3.new(0.20392157137393951, 0.20392157137393951, 0.20392157137393951)	)}
 			UIGradient.Transparency = NumberSequence.new{NumberSequenceKeypoint.new(0,0.5,0),NumberSequenceKeypoint.new(1,0.5,0)}
@@ -1145,7 +1117,7 @@ do
 			Bar2.Name = "Bar2"
 			Bar2.Size = UDim2.new(1,0,0,20)
 			Bar2.BackgroundColor3 = Color3.new(0.0431,0.0431,0.0431)
-				Bar2.BorderColor3 = Color3.new(0.1098,0.1098,0.1098)
+			Bar2.BorderColor3 = Color3.new(0.1098,0.1098,0.1098)
 			--
 			Gradient2.Name = "Gradient2"
 			Gradient2.Color = ColorSequence.new{
